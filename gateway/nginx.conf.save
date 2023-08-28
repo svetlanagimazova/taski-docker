@@ -1,0 +1,16 @@
+server {
+  listen 80;
+
+  location /api/ {
+
+    proxy_pass http://backend:8000/api/;
+  }
+  location /admin/ {
+    proxy_pass http://backend:8000/admin/;
+  }
+
+  location / {
+    alias /staticfiles/;
+    index index.html;
+  }
+}
